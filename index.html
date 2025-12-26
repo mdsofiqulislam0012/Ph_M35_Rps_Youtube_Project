@@ -9,6 +9,13 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- daisyui cdn link -->
+
+    <style>
+        .active{
+            background-color: red;
+            color: white;
+        }
+    </style>
 </head>
 
 <body class="w-11/12 mx-auto">
@@ -28,9 +35,9 @@
 
 
         <!-- categories button start -->
-         <nav id="categories-parent" class="flex justify-center gap-5 py-5">
-            <button class="btn btn-sm bg-red-600 text-white">All</button>
-         </nav>
+        <nav id="categories-parent" class="flex justify-center gap-5 py-5">
+            <button onclick="categoryVideo()" class="btn btn-sm bg-red-600 text-white">All</button>
+        </nav>
         <!-- categories button end -->
     </header>
     <!-- header section end -->
@@ -38,15 +45,24 @@
 
 
 
+    <main>
+        <!-- video section design start -->
+        <section id="video-container" class="grid grid-cols-1 lg:grid-cols-4 gap-5">
+            <!-- user exprience er jonn -->
+            <div class="col-span-full mx-auto items-center py-20 flex flex-col justify-center">
+                <img class="w-[120px]" src="/assets/Icon.png" alt="">
+                <h2 class="text-4xl font-bold flex flex-col">Oops!! Sorry, There is no
+                    <span class="text-center">content here</span>
+                </h2>
+            </div>
+        </section>
+        <!-- video section design end -->
+    </main>
 
-
-
-
-
-    <main></main>
+   
     <footer></footer>
     <!-- costume js connect -->
-     <script src="/assets/script/index.js"></script>
+    <script src="/assets/script/index.js"></script>
 </body>
 
 </html>
