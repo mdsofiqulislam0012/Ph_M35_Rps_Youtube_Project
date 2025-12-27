@@ -1,13 +1,13 @@
 
 
-const showLoader=()=>{
-        const loader = document.getElementById("loader").classList.remove("hidden");
-        const containerOfVideo = document.getElementById("video-container").classList.add("hidden")
-    }
-    const hideLoader=()=>{
-        const loader = document.getElementById("loader").classList.add("hidden");
-        const containerOfVideo = document.getElementById("video-container").classList.remove("hidden")
-    }
+const showLoader = () => {
+    const loader = document.getElementById("loader").classList.remove("hidden");
+    const containerOfVideo = document.getElementById("video-container").classList.add("hidden")
+}
+const hideLoader = () => {
+    const loader = document.getElementById("loader").classList.add("hidden");
+    const containerOfVideo = document.getElementById("video-container").classList.remove("hidden")
+}
 
 // all video show korar jonn fetch
 function categoriesDataLoad() {
@@ -50,25 +50,15 @@ const dynamic_Button_a_click_korle_dynamic_Id_onujayi_data_dekhabe = (id) => {
 }
 // 👉 কাজ শেষ হলে function-টি কল করছি।👇 ⬇️
 categoriesDataLoad();
-categoryVideo();
 
-
-
-// এই function ব্যবহার করে যেসব class সবসময় active থাকে, সেগুলো remove করছি।👇 ⬇️
-const removerActiveClass = () => {
-    const activeClass = document.getElementsByClassName("active");
-    for (const btn of activeClass) {
-        btn.classList.remove("active")
-    }
-}
 
 
 
 
 // 👉 API থেকে ডেটা নিয়ে এসে মেশিনে পাঠাচ্ছি।
-    // search input validation👇 ⬇️
+// search input validation👇 ⬇️
 function categoryVideo(searchText = "") {
-             showLoader()                                      //  search input validation👇 ⬇️
+    showLoader()                                      //  search input validation👇 ⬇️
     fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title= ${searchText}`)
         .then(res => res.json())
         .then(data => {
@@ -79,7 +69,7 @@ function categoryVideo(searchText = "") {
         })
 };
 
-
+categoryVideo();
 
 
 // এই function ব্যবহার করে ডেটা নিয়ে আসছি যাতে card-এর বিস্তারিত দেখাতে পারি।👇 ⬇️
@@ -115,8 +105,8 @@ const showVideoDetails = (video) => {
 function sob_video_display_korar_machin(videos) {
     const videoContainer = document.getElementById("video-container");
     videoContainer.innerHTML = "";
-// jody API er moddhe data na thake tahole
-    if(videos.length == 0){
+    // jody API er moddhe data na thake tahole
+    if (videos.length == 0) {
         videoContainer.innerHTML = `
         <div class="col-span-full mx-auto items-center py-20 flex flex-col justify-center">
                 <img class="w-[120px]" src="/assets/Icon.png" alt="">
@@ -158,17 +148,102 @@ function sob_video_display_korar_machin(videos) {
 
         videoContainer.append(createVideoDiv)
     }
-     hideLoader()
+    hideLoader()
 };
 // 👉 সব ভিডিও প্রদর্শন করার মেশিনে প্রক্রিয়া👆 ⬆️
 
 
 // এখানে search bar-এর validation করা হয়েছে।
-    document.getElementById("searchBar").addEventListener("keyup", (e)=>{
-        const input = e.target.value;
-        // console.log(input);
-        categoryVideo(input);
+document.getElementById("searchBar").addEventListener("keyup", (e) => {
+    const input = e.target.value;
+    // console.log(input);
+    categoryVideo(input);
 
-    });
-    // এখানে search bar-এর validation করা হয়েছে।
-    
+});
+// এখানে search bar-এর validation করা হয়েছে।
+
+// এই function ব্যবহার করে যেসব class সবসময় active থাকে, সেগুলো remove করছি।👇 ⬇️
+const removerActiveClass = () => {
+    const activeClass = document.getElementsByClassName("active");
+    for (const btn of activeClass) {
+        btn.classList.remove("active")
+    }
+}
+
+
+
+
+
+// input form validation
+// html form er onsubmit()👇 ⬇️
+function          validateForm(e) {
+    e.preventDefault();
+    let isValid = true;
+
+
+    // Get values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+
+    // Error elements
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const passwordError = document.getElementById("passwordError");
+    const messageError = document.getElementById("messageError");
+
+
+    // Reset errors
+    nameError.textContent = "";
+    emailError.textContent = "";
+    passwordError.textContent = "";
+    messageError.textContent = "";
+
+
+    // Name validation
+    if (name === "") {
+        nameError.textContent = "Name is required";
+        isValid = false;
+    } else if (name.length < 3) {
+        nameError.textContent = "Name must be at least 3 characters";
+        isValid = false;
+    }
+
+
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === "") {
+        emailError.textContent = "Email is required";
+        isValid = false;
+    } else if (!emailPattern.test(email)) {
+        emailError.textContent = "Enter a valid email address";
+        isValid = false;
+    }
+
+
+    // password validation
+    if(password === ""){
+        passwordError.textContent = "Password is required";
+        isValid = false;
+    }else if(password.length < 4){
+        passwordError.textContent = "Password must be at least 4 characters";
+        isValid = false;
+    }
+
+
+    // Message validation
+    if (message === "") {
+        messageError.textContent = "Message is required";
+        isValid = false;
+    } else if (message.length < 10) {
+        messageError.textContent = "Message must be at least 10 characters";
+        isValid = false;
+    }
+
+
+    return isValid;
+}
+
+// input form validation

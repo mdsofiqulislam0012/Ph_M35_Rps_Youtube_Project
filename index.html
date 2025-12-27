@@ -9,6 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- daisyui cdn link -->
+     <!-- font awosome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <!-- font awosome -->
 
     <style>
         .active {
@@ -52,9 +55,9 @@
     <!-- header section end -->
 
 
-<div id="loader" class="text-center py-5 hidden">
-    <span class="loading loading-spinner text-primary"></span>
-</div>
+    <div id="loader" class="text-center py-5 hidden">
+        <span class="loading loading-spinner text-primary"></span>
+    </div>
 
     <main>
         <!-- video section design start -->
@@ -83,7 +86,89 @@
     </main>
 
 
-    <footer></footer>
+    <footer>
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+            <div class="py-20">
+                <h2 class="text-2xl text-sky-500 font-bold text-center sm:text-left">Direct Contact</h2>
+                <hr>
+
+                <div class="box">
+                    <h2 class="text-sm py-5 text-center text-sky-500 font-bold">My Informations</h2>
+                    <div class="email flex gap-5 mb-3 justify-center sm:justify-start">
+                        <div class="mt-3">
+                            <i class="fa-solid fa-envelope text-2xl text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl text-sky-400">Email</h3>
+                            <p>sofiqulislam672@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="phone ml-40 sm:ml-0 flex gap-5 mb-3">
+                        <div class="mt-3">
+                            <i class="fas fa-phone text-2xl text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xl text-sky-400">Phone</h4>
+                            <p>01319535122</p>
+                        </div>
+                    </div>
+                    <div class="location justify-center sm:justify-start flex gap-5">
+                        <div class="mt-3">
+                            <i class="fas fa-location-dot text-2xl text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xl text-sky-400">Location</h4>
+                            <h4>Dhaka Kollayanpur, Dhaka 1207</h4>
+                        </div>
+                    </div>
+
+                    <div class="social-icons py-5 px-5">
+                        <ul class="justify-center sm:justify-start flex gap-3">
+                            <li><i class="fa-brands fa-facebook text-2xl text-blue-500"></i></li>
+                            <li><i class="fa-brands fa-instagram text-2xl text-blue-500"></i></li>
+                            <li><i class="fa-brands fa-linkedin text-2xl text-blue-500"></i></li>
+                            <li><i class="fa-brands fa-github text-2xl text-blue-500"></i></li>
+                            <li><i class="fa-brands fa-twitter text-2xl text-blue-500"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- footer right section second -->
+             <div class="py-15">
+                <div class="hero min-h-screen">
+                    <div class="hero-content flex-col lg:flex-row-reverse">
+                        <div class="w-full max-w-sm shrink-0 shadow">
+                            <div class="card-body">
+                                <form onsubmit="validateForm(event)" class="form">
+                                    <label class="label mt-3">Your Name</label>
+                                    <input id="name" type="name" class="input w-full" placeholder="Enter your name" />
+                                    <p class="text-red-500" id="nameError"></p>
+                                    <label class="label mt-3">Email</label>
+                                    <input id="email" type="email" class="input w-full" placeholder="Enter your email" />
+                                    <p class="text-red-500" id="emailError"></p>
+                                    <label class="label mt-3">Password</label>
+                                    <input id="password" type="password" class="input w-full" placeholder="Enter your password" />
+                                    <p class="text-red-500" id="passwordError"></p>
+                                    <label class="label mt-3">Enter message here</label>
+                                    <textarea name="text-aria" id="message" placeholder="Enter your message here" class="w-full border-1 border-[#bcb9b9] h-20 px-3 py-3"></textarea>
+                                    <p class="text-red-500" id="messageError"></p>
+                                    <div><a class="link link-hover">Forgot password?</a></div>
+                                    <button type="submit" class="btn w-full btn-primary mt-4">Login</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+
+        <!-- final footer -->
+         <div class="flex justify-center items-center bg-stone-800 rounded">
+            <h4 class="text-sm text-center font-bold text-stone-400 py-5">Copyright © 2025, Jane Doe. All Rights Reserved</h4>
+         </div>
+        <!-- final footer -->
+    </footer>
     <!-- costume js connect -->
     <script src="/assets/script/index.js"></script>
 </body>
